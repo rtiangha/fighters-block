@@ -28,6 +28,7 @@ var monster_name = "Not-A-Block";
 var exp_red = 0;
 var exp_quin = -1;
 var exp_karen = 0;  
+var exp_selphie = -1; 
 var placeholder = "Hello, adventurer! Reach your word count goal to defeat the enemy, before you run out of HP. \n\nBe sure to check out the upper right corner for menu options, including customization and minimized mode to hide animations.";
 date.setTime(date.getTime() + (999*24*60*60*1000));
 date = date.toUTCString();
@@ -71,6 +72,12 @@ $(document).ready(function()
         document.cookie = "exp_karen=0;"; 
     } else {
         exp_karen = parseInt(getCookie("exp_karen"));
+    }
+
+    if (getCookie("exp_selphie") == null {
+        document.cookie = "exp_selphie=-1;";
+    } else {
+        exp_selphie = parseInt(getCookie("exp_selphie"));
     }
 
     if (getCookie("exp_granted") != null && getCookie("exp_granted") == "true") {
@@ -308,6 +315,10 @@ $(document).ready(function()
                     exp_karen = parseInt(exp_karen) + parseInt(total_monster_hp);
                     document.cookie = "exp_karen=" + exp_karen + "; expires=" + date;
                     current_exp = exp_karen;
+                } else if (current_fighter == "selphie") {
+                    exp_selphie = parseInt(exp_selphie) + parseInt(total_monster_hp);
+                    document.cookie = "exp_selphie=" + exp_selphie + "; expires=" + date;
+                    current_exp = exp_selphie;
                 } else {
                     exp_red = parseInt(exp_red) + parseInt(total_monster_hp);
                     document.cookie = "exp_red=" + exp_red + "; expires=" + date;
@@ -319,7 +330,11 @@ $(document).ready(function()
                 {
                     exp_quin = 1;
                     document.cookie = "exp_quin=1; expires=" + date;
+                } else if (expToLevel (current_exp) >= 16 && exp_selphie < 0) {
+                    exp_selphie = 1;
+                    document.cookie = "exp_selphie=1; expires=" + date;
                 }
+                    
                 shownotif();
             }
         }
@@ -459,9 +474,9 @@ function checkFighter() {
      if(current_fighter == "quin") { //do animations for different fighters...
        $('#avatar').attr('src', 'img/set/quin.gif');       
     } else if (current_fighter == "karen") {
-    $('#avatar').attr('src', 'img/set/karen.gif');  
-    }
-
+        $('#avatar').attr('src', 'img/set/karen.gif');  
+    } else if (current_fighter == "selphie") {
+        $('#avatar').attr('src', 'img/set/selphie.gif');
 }
     
 
@@ -506,6 +521,9 @@ function showuser() {
         } else if (current_fighter=="karen") {
             $('#exp').html(getCookie("exp_karen"));
             $('#level').html(expToLevel(getCookie("exp_karen")));
+        } else if (current_fighter=="selphie") {
+            $('#exp').html(getCookie("exp_selphie"));
+            $('#level').html(expToLevel(getCookie("exp_selphie")));
         } else {
             $('#exp').html(getCookie("exp_red"));
             $('#level').html(expToLevel(getCookie("exp_red")));        
@@ -665,7 +683,16 @@ function selectFighter(num) {
             $("#fighterdesc").html("Nearfield's premier bookkeeper, noodle connoisseur, and dragon slayer. Eternally beautiful.");
             current_fighter = "karen";
             break;
-
+        case 4:
+            if (exp_selphie > 0) {
+                $("#fightername").html("Cleaning Witch (Level " + expToLevel(exp_selphie)+ ")");
+                $("#fighterdesc").html("The worst kind of witch ever. Victimizer of fire demons and heart-eating wizards everywhere.");
+                current_fighter = "selphie";
+            }   else {
+                $("#fightername").html("Cleaning Witch (Locked)");
+                $("#fighterdesc").html("A fearsome witch from the land of Ingary. Reach level 16 and catch her eye.");
+            }     
+            break;
     }
 }
 
