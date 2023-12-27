@@ -6,9 +6,14 @@
   <link id="favicon" rel="shortcut icon" type="image/png" href="img/favicon5.png" />
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/flexslider.css">
-  <link href='https://fonts.googleapis.com/css?family=Roboto|Chewy|Anonymous+Pro|Merriweather|Indie+Flower|Muli' rel='stylesheet' type='text/css'>
+  <link href='./fonts/css/roboto.css' rel='stylesheet' type='text/css'>
+  <link href='./fonts/css/chewy.css' rel='stylesheet' type='text/css'>
+  <link href='./fonts/css/anonymouspro.css' rel='stylesheet' type='text/css'>
+  <link href='./fonts/css/merriweather.css' rel='stylesheet' type='text/css'>
+  <link href='./fonts/css/indieflower.css' rel='stylesheet' type='text/css'>
+  <link href='./fonts/css/muli.css' rel='stylesheet' type='text/css'>
 
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="./lib/jquery.min.js"></script>
   <script src="plugins/jquery.nicescroll.min.js"></script>
   <link rel="stylesheet" href="css/selectordie.css" />
   <script src="plugins/selectordie.min.js"></script>
@@ -25,37 +30,37 @@
   <div id="blackout"></div>
 <div class="selectbox">
   <div class="monsters">
-    <a href="#" onclick="selectFighter(1)"><img src="img/preview/av1.png"></a> 
+    <a href="#" onclick="selectFighter(1)"><img src="img/preview/av1.png"></a>
     <a href="#" onclick="selectFighter(2)"><img src="img/preview/av2.png"></a>
     <a href="#" onclick="selectFighter(3)"><img src="img/preview/av3.png"></a>
-    <a href="#" onclick="selectFighter(0)"><img src="img/preview/0.png"></a>
-    <a href="#" onclick="selectFighter(0)"><img src="img/preview/0.png"></a>
-    <a href="#" onclick="selectFighter(0)"><img src="img/preview/0.png"></a>
-    <a href="#" onclick="selectFighter(0)"><img src="img/preview/0.png"></a>
-    <a href="#" onclick="selectFighter(0)"><img src="img/preview/0.png"></a>
-    <a href="#" onclick="selectFighter(0)"><img src="img/preview/0.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
     <br><span id="fightername">Red</span><br><span id="fighterdesc">A mage from Somewhereshire; rumors say she's trying to hunt a certain carnivore prowling these parts.</span>
   </div>
 
   <div class="monsters second">
-    <a href="#" onclick="selectMonster(1)"><img src="img/preview/m1.png"></a> 
-    <a href="#" onclick="selectMonster(0)"><img src="img/preview/0.png"></a>
-    <a href="#" onclick="selectMonster(0)"><img src="img/preview/0.png"></a>
-    <a href="#" onclick="selectMonster(0)"><img src="img/preview/0.png"></a>
-    <a href="#" onclick="selectMonster(0)"><img src="img/preview/0.png"></a>
-    <a href="#" onclick="selectMonster(0)"><img src="img/preview/0.png"></a>
-    <a href="#" onclick="selectMonster(0)"><img src="img/preview/0.png"></a>
-    <a href="#" onclick="selectMonster(0)"><img src="img/preview/0.png"></a>
-    <a href="#" onclick="selectMonster(0)"><img src="img/preview/0.png"></a>
+    <a href="#" onclick="selectMonster(1)"><img src="img/preview/m1.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
+	<a href="#" class="locked"><img src="img/preview/0.png"></a>
     <br><span id="monstername">Not-A-Block</span><br><span id="monsterdesc">A native of the Blocky Woods, this oblong has been ostracized all its life for its strange appearance.</span>
   </div>
   <div class="fight">Versus</div>
   <div class="words">Reach <input type="text" id="num" pattern="[0-9]+" placeholder="<goal>" onClick="this.select();" required> words before the monster knocks you out. <a href="#" onclick="clearmonsters()">Fight!</a><p></div>
 
   <div style="text-align:center; font-size: 30px; opacity: .5; margin-top: -15px; font-family: sosa">
-      <a href="https://cerey.github.io/fighters-block/whatis.html" class="tooly" title="What is Fighter's Block?" target = "_blank">i</a> 
-    <a href="https://twitter.com/psstkeepwriting" class="tooly" title="Come say hi on Twitter!" target = "_blank">t</a> 
-    <a id="dl"  href="#" class="tooly" title="See your latest work." onclick="dl()">é</a> 
+      <a href="https://cerey.github.io/fighters-block/whatis.html" class="tooly" title="What is Fighter's Block?" target = "_blank">i</a>
+    <a href="https://twitter.com/psstkeepwriting" class="tooly" title="Come say hi on Twitter!" target = "_blank">t</a>
+    <a id="dl"  href="#" class="tooly" title="See your latest work." onclick="dl()">é</a>
     <a href="https://www.paypal.me/fightersblock" class="tooly" title="Buy me a cup of tea? :)" target = "_blank">c</a>
     <a href="https://cerey.github.io/fighters-block/credits.html" class="tooly" title="Credits and Help" target = "_blank">Y</a></div>
 </div>
@@ -90,21 +95,21 @@
       <option value="1000">Moderate</option>
       <option value="500">Speedy</option>
       <option value="250">Turret Gun</option>
-    </select> 
+    </select>
     <select id="attackselect">
       <option value="1">Miniscule</option>
       <option value="2">Unimpressive</option>
       <option value="3">Strong</option>
       <option value="4">Hulk</option>
       <option value="5">Exterminator</option>
-    </select> 
+    </select>
     <select id="fontselect">
       <option value="roboto">Roboto</option>
       <option value="Anonymous Pro">Anonymous Pro</option>
       <option value="merriweather">Merriweather</option>
       <option value="indie flower">Indie Flower</option>
       <option value="muli">Muli</option>
-    </select> 
+    </select>
     <select id="sizeselect">
       <option value="12px">Small</option>
       <option value="16px">Medium</option>
@@ -121,7 +126,7 @@
       <option value="5">Sea Foam</option>
       <option value="7">Mainframe</option>
       <option value="8">Hydrangea</option>
-    </select> 
+    </select>
     <select id="widescreen">
       <option value="narrow">Narrow</option>
       <option value="wide">Widescreen</option>
@@ -131,4 +136,3 @@
   <div id="expnotif"><span id = "notifsymbol" style="font-family: Sosa; font-size: 40px; color: #78AE8C;">e</span><br><span id="exp_temp"></span></div>
 </body>
 </html>
-
